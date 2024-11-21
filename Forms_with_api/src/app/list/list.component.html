@@ -1,0 +1,39 @@
+<table class="table  table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">name</th>
+      <th scope="col">email</th>
+      <th scope="col">address</th>
+      <th scope="col">gender</th>
+      <th scope="col">phone</th>
+      <th scope="col">age</th>
+      <th scope="col">date</th>
+      <th scope="col">flavour</th>
+      <th scope="col">size</th>
+      <th scope="col">type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let wd of data; let i = index">
+      <td scope="row">{{wd.id}}</td>
+      <td>{{wd.name}}</td>
+      <td>{{wd.email}}</td>
+      <td>{{wd.address}}</td>
+      <td>{{wd.gender}}</td>
+      <td>{{wd.phone}}</td>
+      <td>{{wd.age}}</td>
+      <td>{{wd.date}}</td>
+      <td>{{wd.flavour}}</td>
+      <td>{{wd.size}}</td>
+      <td>{{wd.type}}</td>
+      <td>
+        <button type="button" (click)="onEdit(wd)">🖌</button>
+      </td>
+      <td>
+        <button type="button" (click)="onDelete(wd.id)">🗑</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>

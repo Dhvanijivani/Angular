@@ -1,0 +1,97 @@
+<div class="container center shadow w-50">
+  <marquee behavior="slide" direction="down">
+    <h1 class="text-center">TD-Form</h1>
+  </marquee>
+  <form (ngSubmit)="saveUser()" #winef="ngForm" name="wineForm">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Name</th>
+          <td>
+            <input type="text" name="name" #name="ngModel" class="form-control" [(ngModel)]="wineForm.name">
+          </td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td>
+            <input type="email" name="email" #email="ngModel" class="form-control" [(ngModel)]="wineForm.email">
+          </td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td>
+            <input type="text" name="address" #address="ngModel" class="form-control" [(ngModel)]="wineForm.address">
+          </td>
+        </tr>
+        <tr>
+          <th>Gender</th>
+          <td>
+            <input type="radio" class="form-check-input mx-2" #gender="ngModel" name="gender" value="female"
+              [(ngModel)]="wineForm.gender">Female
+            <input type="radio" class="form-check-input mx-2" #gender="ngModel" name="gender" value="male"
+              [(ngModel)]="wineForm.gender">Male
+          </td>
+        </tr>
+        <tr>
+          <th>Phone.No</th>
+          <td>
+            <input type="number" name="phone" class="form-control" #phone="ngModel" [(ngModel)]="wineForm.phone">
+          </td>
+        </tr>
+        <tr>
+          <th>Age</th>
+          <td><input type="number" name="age" class="form-control" #age="ngModel" [(ngModel)]="wineForm.age"></td>
+        </tr>
+        <tr>
+          <th>Date & Time</th>
+          <td><input type="datetime-local" name="date" class="form-control" #date="ngModel" [(ngModel)]="wineForm.date">
+          </td>
+        </tr>
+        <tr>
+          <th>Flavour</th>
+
+          <td>
+            <ng-container *ngFor="let checkbox of flavourList">
+              <input type="checkbox" [(ngModel)]="checkbox.checked" [value]="checkbox.value" class="mx-3"
+                [ngModelOptions]="{standalone: true}">
+              <span>{{checkbox.name}}</span>
+            </ng-container>
+
+          </td>
+        </tr>
+
+
+        <tr>
+          <th>Size</th>
+          <td>
+            <select class="form-select" aria-label="Default select example" name="size" #size="ngModel"
+              [(ngModel)]="wineForm.size">
+              <option value="" disabled selected>select your size</option>
+              <option value="Standard">Standard(750 ml)</option>
+              <option value="Green">Green</option>
+              <option value="Screwcap">Screw caps</option>
+              <option value="halfbot">half bottles</option>
+              <option value="Magnums">Magnums & large</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>Type</th>
+          <td>
+            <input type="radio" class="form-check-input mx-2" name="type" #type="ngModel" value="alcoholic"
+              [(ngModel)]="wineForm.type">Alcoholic
+            <input type="radio" class="form-check-input mx-2" name="type" #type="ngModel" value="nonalcoholic"
+              [(ngModel)]="wineForm.type">Non-Alcoholic
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-center">
+            <button type="submit" class="btn btn-outline-success mx-2">{{id ? 'update':'save'}}</button>
+            <button type="button" (click)="resetForm(false)" class="btn btn-outline-danger">Reset</button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
